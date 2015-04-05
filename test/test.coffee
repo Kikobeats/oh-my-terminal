@@ -57,11 +57,3 @@ describe 'Oh My Terminal ::', ->
         (typeof childs[0] is 'object').should.be.equal true
         (typeof childs[1] is 'object').should.be.equal true
         done()
-
-  xdescribe 'is', ->
-
-    it 'compare the result of a exec command', ->
-      (terminal.is 'echo hello world', 'hello world\n').should.be.equal true
-
-    xit 'compare the result of a exec command with regex', ->
-      (terminal.is 'node -v', /v0.1[0-9]/g).should.be.equal true

@@ -61,8 +61,3 @@ module.exports = class Terminal
     child = []
     child.push childFunction.bind childFunction, command for command in args.command
     parallel child, (err, results) -> args.cb(results)
-
-  @is: (command, expected) =>
-    command = @exec command
-    return new RegExp(expected).test command if typeof expected is 'object'
-    command is expected
