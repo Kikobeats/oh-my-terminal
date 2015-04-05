@@ -1,0 +1,38 @@
+{
+  "name": "oh-my-terminal",
+  "description": "Terminal interface for NodeJS",
+  "homepage": "https://github.com/Kikobeats/oh-my-terminal",
+  "version": "0.0.0",
+  "main": "./index.js",
+  "author": {
+    "name": "Kiko Beats",
+    "email": "josefrancisco.verdu@gmail.com",
+    "url": "https://github.com/Kikobeats"
+  },
+  "repository": "Kikobeats/oh-my-terminal",
+  "bugs": {
+    "url": "https://github.com/Kikobeats/oh-my-terminal/issues"
+  },
+  "keywords": [
+    "spawn",
+    "exec",
+    "terminal"
+  ],
+  "dependencies": {
+    "args-js": "*",
+    "coffee-script": "*"
+  },
+  "devDependencies": {
+    "browserify": "*",
+    "mocha": "*",
+    "should": "*"
+  },
+  "engines": {
+    "node": ">= 0.12.x",
+    "npm": ">= 1.4.0"
+  },
+  "scripts": {
+    "test": "sh test/test.sh"
+  },
+  "license": "MIT"
+}
