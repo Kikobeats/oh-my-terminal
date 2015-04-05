@@ -8,9 +8,9 @@ module.exports = class Terminal
 
   @exec: ->
     args = Args([
-      [{command: Args.STRING | Args.Required}, {command: Args.ARRAY  | Args.Required}]
+      [{command: Args.STRING   | Args.Required}, {command: Args.ARRAY  | Args.Required}]
       {options : Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
-      {cb      : Args.FUNCTION | Args.Optional, _default: undefined         }
+      {cb      : Args.FUNCTION | Args.Optional, _default: undefined}
     ], arguments)
 
     isSingleCommand = typeof args.command is 'string'
@@ -39,9 +39,28 @@ module.exports = class Terminal
       {cb      : Args.FUNCTION | Args.Optional, _default: undefined         }
     ], arguments)
 
-    args.command = args.command.split ' '
-    return process.spawnSync args.command.shift(), args.command, args.options unless args.cb
-    args.cb process.spawn args.command.shift(), args.command, args.options
+    isSingleCommand = typeof args.command is 'string'
+
+    unless args.cb
+      if isSingleCommand
+        args.command = args.command.split ' '
+        return process.spawnSync args.command.shift(), args.command, args.options
+
+      child = []
+      child.push @spawn command for command in args.command
+      return child
+
+    if isSingleCommand
+      args.command = args.command.split ' '
+      return args.cb process.spawn args.command.shift(), args.command, args.options
+
+    childFunction = (command, callback) =>
+      command = command.split ' '
+      callback(null, process.spawn command.shift(), command, args.options)
+
+    child = []
+    child.push childFunction.bind childFunction, command for command in args.command
+    parallel child, (err, results) -> args.cb(results)
 
   @is: (command, expected) =>
     command = @exec command

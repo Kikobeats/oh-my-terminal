@@ -5,7 +5,7 @@ describe 'Oh My Terminal ::', ->
 
   describe 'exec', ->
 
-    it 'exec just a command', ->
+    it 'exec a command', ->
       term = terminal.exec 'echo hello world'
       (term is 'hello world\n').should.be.equal true
 
@@ -33,6 +33,11 @@ describe 'Oh My Terminal ::', ->
       child = terminal.spawn 'echo hello world'
       child.output[1].should.be.equal 'hello world\n'
 
+    it 'spawn an array of command', ->
+      child = terminal.spawn ['echo hello world', 'echo hello world']
+      child[0].output[1].should.be.equal 'hello world\n'
+      child[1].output[1].should.be.equal 'hello world\n'
+
     it 'spawn a command async', (done) ->
       terminal.spawn 'echo hello world', (child) ->
         # child.stdout.on 'data', (data) ->
@@ -47,7 +52,13 @@ describe 'Oh My Terminal ::', ->
         (typeof child is 'object').should.be.equal true
         done()
 
-  describe 'is', ->
+    it 'spawn an array of command async', (done) ->
+      terminal.spawn ['echo hello world', 'echo hello world'], (childs) ->
+        (typeof childs[0] is 'object').should.be.equal true
+        (typeof childs[1] is 'object').should.be.equal true
+        done()
+
+  xdescribe 'is', ->
 
     it 'compare the result of a exec command', ->
       (terminal.is 'echo hello world', 'hello world\n').should.be.equal true
