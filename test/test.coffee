@@ -5,14 +5,26 @@ describe 'Oh My Terminal ::', ->
 
   describe 'exec', ->
 
-    it 'exec a command', ->
+    it 'exec just a command', ->
       term = terminal.exec 'echo hello world'
       (term is 'hello world\n').should.be.equal true
 
-    it 'exec a command async', (done) ->
+    it 'exec an array of commands', ->
+      term = terminal.exec ['echo hello world', 'echo hello world']
+      (term[0] is 'hello world\n').should.be.equal true
+      (term[1] is 'hello world\n').should.be.equal true
+
+    it 'exec just a command async', (done) ->
       terminal.exec 'echo hello world', (err, stdout, stderr) ->
         (err is null).should.be.equal true
         (stdout is 'hello world\n').should.be.equal true
+        done()
+
+    it 'exec an array of commands async', (done) ->
+      terminal.exec ['echo hello world', 'echo hello world'], (err, commands) ->
+        (err is null).should.be.equal true
+        (commands[0].stdout is 'hello world\n').should.be.equal true
+        (commands[1].stdout is 'hello world\n').should.be.equal true
         done()
 
   describe 'spawn', ->

@@ -20,7 +20,8 @@
   ],
   "dependencies": {
     "args-js": "*",
-    "coffee-script": "*"
+    "coffee-script": "*",
+    "run-parallel": "^1.1.0"
   },
   "devDependencies": {
     "browserify": "*",
