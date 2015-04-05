@@ -54,7 +54,7 @@ module.exports = class Terminal
       args.command = args.command.split ' '
       return args.cb process.spawn args.command.shift(), args.command, args.options
 
-    childFunction = (command, callback) =>
+    childFunction = (command, callback) ->
       command = command.split ' '
       callback(null, process.spawn command.shift(), command, args.options)
 
