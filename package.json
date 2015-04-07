@@ -2,7 +2,7 @@
   "name": "oh-my-terminal",
   "description": "Terminal interface for NodeJS",
   "homepage": "https://github.com/Kikobeats/oh-my-terminal",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./index.js",
   "author": {
     "name": "Kiko Beats",
@@ -21,7 +21,7 @@
   "dependencies": {
     "args-js": "*",
     "coffee-script": "*",
-    "run-parallel": "^1.1.0"
+    "run-parallel": "*"
   },
   "devDependencies": {
     "browserify": "*",

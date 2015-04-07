@@ -9,7 +9,7 @@ module.exports = class Terminal
   @exec: ->
     args = Args([
       [{command: Args.STRING   | Args.Required}, {command: Args.ARRAY  | Args.Required}]
-      {options : Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
+      {options : Args.OBJECT   | Args.Optional, _default: {stdio: 'pipe', encoding: 'utf8'}}
       {cb      : Args.FUNCTION | Args.Optional, _default: undefined}
     ], arguments)
 
