@@ -87,8 +87,6 @@ Also remmeber that when a method is synchronous, it means that WILL block the ev
 
 Because the output is based in the size of a Buffer, you must to use for command that output few data.
 
-This command create a subprocess in the node main process.
-
 #### synchronously version
 
 The output is just `stdout` if the code error of the command is  0. In other case, throw a `Error` and the result is the same that **spawnSync**.
@@ -100,8 +98,6 @@ Returns the buffer version of the output (`error`, `stdout` and `stderr`).
 ### spawn
 
 When your commands output some data or you need some information about the process (like the `PID`).
-
-This command create a process where the input and the output is connect with the node main process.
 
 #### synchronously version
 
