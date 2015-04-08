@@ -8,7 +8,7 @@
 
 > Terminal interface for NodeJS
 
-A simple wrapper that provide a uniform interface for interact with `exec` and `spawn` function of the [child_process](https://nodejs.org/api/child_process.html) module (synchronously and asynchronously).
+A simple wrapper that provides a uniform interface for interact with `exec` and `spawn` function of the [child_process](https://nodejs.org/api/child_process.html) module (synchronously and asynchronously).
 
 ## Install
 
