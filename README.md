@@ -6,7 +6,7 @@
 [![NPM Status](http://img.shields.io/npm/dm/oh-my-terminal.svg?style=flat-square)](https://www.npmjs.org/package/oh-my-terminal)
 [![Gittip](http://img.shields.io/gittip/Kikobeats.svg?style=flat-square)](https://www.gittip.com/Kikobeats/)
 
-> Terminal interface for NodeJS
+> Simple terminal interface for NodeJS
 
 A simple wrapper that provides a uniform interface for interact with `exec` and `spawn` function of the [child_process](https://nodejs.org/api/child_process.html) module (synchronously and asynchronously).
 
