@@ -11,7 +11,7 @@
 ## Why
 
 - Based in NodeJS `exec` and `spawn` native interface.
-- Automatically provide a polyfill for non native compatible node versions (for example, `execSync` under `0.8`).
+- Automatically provide a polyfill for non native compatible node versions (for example, `execSync` under `0.10`).
 - Uniform methods for synchronously and asynchronously, just decide providing or not a callback.
 - Little improvements, like posibility for run a set of commands in the same command or more information about the process status in `sync` versions.
 
