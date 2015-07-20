@@ -21,8 +21,8 @@
   "dependencies": {
     "args-js": "*",
     "coffee-script": "*",
-    "exec-file-sync": "*",
     "run-parallel": "*",
+    "spawn-sync": "*",
     "sync-exec": "*"
   },
   "devDependencies": {
