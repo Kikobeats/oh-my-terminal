@@ -5,8 +5,8 @@
   "version": "1.0.0",
   "main": "./index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://github.com/Kikobeats"
   },
   "repository": "Kikobeats/oh-my-terminal",
@@ -14,14 +14,16 @@
     "url": "https://github.com/Kikobeats/oh-my-terminal/issues"
   },
   "keywords": [
-    "spawn",
     "exec",
+    "spawn",
     "terminal"
   ],
   "dependencies": {
     "args-js": "*",
     "coffee-script": "*",
-    "run-parallel": "*"
+    "exec-file-sync": "*",
+    "run-parallel": "*",
+    "sync-exec": "*"
   },
   "devDependencies": {
     "browserify": "*",
