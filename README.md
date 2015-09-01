@@ -4,7 +4,7 @@
 [![Dependency status](http://img.shields.io/david/Kikobeats/oh-my-terminal.svg?style=flat-square)](https://david-dm.org/Kikobeats/oh-my-terminal)
 [![Dev Dependencies Status](http://img.shields.io/david/dev/Kikobeats/oh-my-terminal.svg?style=flat-square)](https://david-dm.org/Kikobeats/oh-my-terminal#info=devDependencies)
 [![NPM Status](http://img.shields.io/npm/dm/oh-my-terminal.svg?style=flat-square)](https://www.npmjs.org/package/oh-my-terminal)
-[![Gittip](http://img.shields.io/gittip/Kikobeats.svg?style=flat-square)](https://www.gittip.com/Kikobeats/)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
 
 > Simple and unmistakable terminal interface for NodeJS.
 
