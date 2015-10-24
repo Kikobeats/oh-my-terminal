@@ -9,62 +9,62 @@ execSync         = require 'sync-exec'
 # the library on iojs and node >= 0.12 it will just export the built in child_process.spawnSync
 spawnSync        = require 'spawn-sync'
 
-exec = (command, options, cb) ->
-  childProcess.exec command, options, (err, stdout, stderr) ->
+exec = (cmd, opts, cb) ->
+  childProcess.exec cmd, opts, (err, stdout, stderr) ->
     cb err, { stdout: stdout, stderr: stderr}
 
 module.exports = class Terminal
 
   @exec: ->
     args = Args([
-      [{command: Args.STRING   | Args.Required}, {command: Args.ARRAY  | Args.Required}]
-      {options : Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
-      {cb      : Args.FUNCTION | Args.Optional, _default: undefined}
+      [{cmd: Args.STRING   | Args.Required}, {cmd: Args.ARRAY  | Args.Required}]
+      {opts: Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
+      {cb  : Args.FUNCTION | Args.Optional, _default: undefined}
     ], arguments)
 
-    isSingleCommand = typeof args.command is 'string'
+    isSingleCommand = typeof args.cmd is 'string'
 
     unless args.cb
-      return execSync args.command args.options if isSingleCommand
+      return execSync args.cmd, args.opts if isSingleCommand
       child = []
-      child.push @exec command for command in args.command
+      child.push @exec cmd for cmd in args.cmd
       return child
 
-    return exec args.command, args.options, args.cb if isSingleCommand
+    return exec args.cmd, args.opts, args.cb if isSingleCommand
 
-    childFunction = (command, next) =>
-      @exec command, args.options, next
+    childFunction = (cmd, next) =>
+      @exec cmd, args.opts, next
 
     child = []
-    child.push childFunction.bind childFunction, command for command in args.command
+    child.push childFunction.bind childFunction, cmd for cmd in args.cmd
     parallel child, args.cb
 
   @spawn: ->
     args = Args([
-      [{command: Args.STRING | Args.Required}, {command: Args.ARRAY  | Args.Required}]
-      {options : Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
-      {cb      : Args.FUNCTION | Args.Optional, _default: undefined         }
+      [{cmd: Args.STRING   | Args.Required}, {cmd: Args.ARRAY  | Args.Required}]
+      {opts: Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
+      {cb  : Args.FUNCTION | Args.Optional, _default: undefined         }
     ], arguments)
 
-    isSingleCommand = typeof args.command is 'string'
+    isSingleCommand = typeof args.cmd is 'string'
 
     unless args.cb
       if isSingleCommand
-        args.command = args.command.split ' '
-        return spawnSync args.command.shift(), args.command, args.options
+        args.cmd = args.cmd.split ' '
+        return spawnSync args.cmd.shift(), args.cmd, args.opts
 
       child = []
-      child.push @spawn command for command in args.command
+      child.push @spawn cmd for cmd in args.cmd
       return child
 
     if isSingleCommand
-      args.command = args.command.split ' '
-      return args.cb spawn args.command.shift(), args.command, args.options
+      args.cmd = args.cmd.split ' '
+      return args.cb spawn args.cmd.shift(), args.cmd, args.opts
 
-    childFunction = (command, next) ->
-      command = command.split ' '
-      next null, spawn command.shift(), command, args.options
+    childFunction = (cmd, next) ->
+      cmd = cmd.split ' '
+      next null, spawn cmd.shift(), cmd, args.opts
 
     child = []
-    child.push childFunction.bind childFunction, command for command in args.command
+    child.push childFunction.bind childFunction, cmd for cmd in args.cmd
     parallel child, (err, results) -> args.cb results
