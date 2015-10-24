@@ -2,13 +2,13 @@
 
 Args             = require 'args-js'
 parallel         = require 'run-parallel'
-execSync         = require 'sync-exec'
-spawnSync        = require 'spawn-sync'
-childProcessExec = require('child_process').exec
+childProcess     = require 'child_process'
 spawn            = require('child_process').spawn
+execSync         = childProcess.execSync or require 'sync-exec'
+spawnSync        = childProcess.spawnSync or require 'spawn-sync'
 
 exec = (command, options, cb) ->
-  childProcessExec command, options, (err, stdout, stderr) ->
+  childProcess.exec command, options, (err, stdout, stderr) ->
     cb err, { stdout: stdout, stderr: stderr}
 
 module.exports = class Terminal
