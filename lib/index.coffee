@@ -25,7 +25,7 @@ module.exports = class Terminal
     isSingleCommand = typeof args.command is 'string'
 
     unless args.cb
-      return execSync args.command if isSingleCommand
+      return execSync args.command args.options if isSingleCommand
       child = []
       child.push @exec command for command in args.command
       return child
