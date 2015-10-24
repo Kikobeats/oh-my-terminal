@@ -4,8 +4,10 @@ Args             = require 'args-js'
 parallel         = require 'run-parallel'
 childProcess     = require 'child_process'
 spawn            = require('child_process').spawn
-execSync         = childProcess.execSync or require 'sync-exec'
-spawnSync        = childProcess.spawnSync or require 'spawn-sync'
+# the library uses native use native child_process.execSync if available (from node v0.12+)
+execSync         = require 'sync-exec'
+# the library on iojs and node >= 0.12 it will just export the built in child_process.spawnSync
+spawnSync        = require 'spawn-sync'
 
 exec = (command, options, cb) ->
   childProcess.exec command, options, (err, stdout, stderr) ->
