@@ -1,7 +1,16 @@
+<a name="1.1.2"></a>
+## 1.1.2 (2015-10-24)
+
+
+* reviewed style ([1917648](https://github.com/kikobeats/oh-my-terminal/commit/1917648))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2015-10-24)
 
 
+* 1.1.1 releases ([de63a49](https://github.com/kikobeats/oh-my-terminal/commit/de63a49))
 * fixed correct way to .bind something ([a8fe6f8](https://github.com/kikobeats/oh-my-terminal/commit/a8fe6f8))
 * fixed style ([91814ac](https://github.com/kikobeats/oh-my-terminal/commit/91814ac))
 * pass options in singleCommand mode ([0c6b4aa](https://github.com/kikobeats/oh-my-terminal/commit/0c6b4aa))
