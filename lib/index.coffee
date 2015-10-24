@@ -43,7 +43,7 @@ module.exports = class Terminal
     args = Args([
       [{cmd: Args.STRING   | Args.Required}, {cmd: Args.ARRAY  | Args.Required}]
       {opts: Args.OBJECT   | Args.Optional, _default: {encoding: 'utf8'}}
-      {cb  : Args.FUNCTION | Args.Optional, _default: undefined         }
+      {cb  : Args.FUNCTION | Args.Optional, _default: undefined}
     ], arguments)
 
     isSingleCommand = typeof args.cmd is 'string'
