@@ -36,7 +36,7 @@ module.exports = class Terminal
       @exec cmd, args.opts, next
 
     child = []
-    child.push childFunction.bind childFunction, cmd for cmd in args.cmd
+    child.push childFunction.bind null, cmd for cmd in args.cmd
     parallel child, args.cb
 
   @spawn: ->
@@ -66,5 +66,5 @@ module.exports = class Terminal
       next null, spawn cmd.shift(), cmd, args.opts
 
     child = []
-    child.push childFunction.bind childFunction, cmd for cmd in args.cmd
+    child.push childFunction.bind null, cmd for cmd in args.cmd
     parallel child, (err, results) -> args.cb results
