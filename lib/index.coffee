@@ -1,17 +1,17 @@
 'use strict'
 
-Args             = require 'args-js'
-parallel         = require 'run-parallel'
-childProcess     = require 'child_process'
-spawn            = require('child_process').spawn
+Args         = require 'args-js'
+parallel     = require 'run-parallel'
+childProcess = require 'child_process'
+spawn        = childProcess.spawn
 # the library uses native use native child_process.execSync if available (from node v0.12+)
-execSync         = require 'sync-exec'
+execSync     = require 'sync-exec'
 # the library on iojs and node >= 0.12 it will just export the built in child_process.spawnSync
-spawnSync        = require 'spawn-sync'
+spawnSync    = require 'spawn-sync'
 
 exec = (cmd, opts, cb) ->
   childProcess.exec cmd, opts, (err, stdout, stderr) ->
-    cb err, { stdout: stdout, stderr: stderr}
+    cb err, {stdout: stdout, stderr: stderr}
 
 module.exports = class Terminal
 
