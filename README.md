@@ -121,7 +121,7 @@ Options are [child_process.exec](https://nodejs.org/api/child_process.html#child
 
 ### .spawn(&lt;command[s]&gt;, [options], [callback])
 
-Invoke `child_process.spawn` (or `spawnSunc` if you don't provide a callback) function. You can provide just one `String` command or an `Array` of command to be executed.
+Invoke `child_process.spawn` (or `spawnSync` if you don't provide a callback) function. You can provide just one `String` command or an `Array` of command to be executed.
 
 Options are [child_process.spawn](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options) options. `{ encoding: 'utf8' }` by default.
 
