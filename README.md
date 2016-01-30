@@ -49,7 +49,7 @@ console.log(term);
 Using **spawn**:
 
 ```js
-var term = terminal.exec('echo hello world');
+var term = terminal.spawn('echo hello world');
 
 console.log(term);
 // => {
