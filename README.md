@@ -1,7 +1,5 @@
 # oh-my-terminal
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Kikobeats/oh-my-terminal.svg)](https://greenkeeper.io/)
-
 ![Last version](https://img.shields.io/github/tag/Kikobeats/oh-my-terminal.svg?style=flat-square)
 [![Build Status](http://img.shields.io/travis/Kikobeats/oh-my-terminal/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/oh-my-terminal)
 [![Dependency status](http://img.shields.io/david/Kikobeats/oh-my-terminal.svg?style=flat-square)](https://david-dm.org/Kikobeats/oh-my-terminal)
