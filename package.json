@@ -19,16 +19,16 @@
     "terminal"
   ],
   "dependencies": {
-    "args-js": "*",
-    "coffee-script": "*",
-    "run-parallel": "*",
-    "spawn-sync": "*",
-    "sync-exec": "*"
+    "args-js": "latest",
+    "coffee-script": "latest",
+    "run-parallel": "latest",
+    "spawn-sync": "latest",
+    "sync-exec": "latest"
   },
   "devDependencies": {
-    "browserify": "*",
-    "mocha": "*",
-    "should": "*"
+    "browserify": "latest",
+    "mocha": "latest",
+    "should": "latest"
   },
   "engines": {
     "node": ">= 0.11.16",
